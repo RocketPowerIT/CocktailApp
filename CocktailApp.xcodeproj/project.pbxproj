@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0491641F2731DC9400C02D37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491641E2731DC9400C02D37 /* NetworkService.swift */; };
+		049164212731E1AA00C02D37 /* APICoctailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164202731E1AA00C02D37 /* APICoctailManager.swift */; };
+		049164232731E73900C02D37 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164222731E73900C02D37 /* NetworkError.swift */; };
+		049164252731EF6F00C02D37 /* CurrentCoctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164242731EF6F00C02D37 /* CurrentCoctail.swift */; };
 		04C41B6627319899005B3B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41B6527319899005B3B01 /* AppDelegate.swift */; };
 		04C41B6827319899005B3B01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41B6727319899005B3B01 /* SceneDelegate.swift */; };
 		04C41B6A27319899005B3B01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41B6927319899005B3B01 /* ViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0491641E2731DC9400C02D37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		049164202731E1AA00C02D37 /* APICoctailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICoctailManager.swift; sourceTree = "<group>"; };
+		049164222731E73900C02D37 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		049164242731EF6F00C02D37 /* CurrentCoctail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoctail.swift; sourceTree = "<group>"; };
 		04C41B6227319899005B3B01 /* CocktailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C41B6527319899005B3B01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C41B6727319899005B3B01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 				04C41B6E2731989A005B3B01 /* Assets.xcassets */,
 				04C41B702731989A005B3B01 /* LaunchScreen.storyboard */,
 				04C41B732731989A005B3B01 /* Info.plist */,
+				0491641E2731DC9400C02D37 /* NetworkService.swift */,
+				049164202731E1AA00C02D37 /* APICoctailManager.swift */,
+				049164222731E73900C02D37 /* NetworkError.swift */,
+				049164242731EF6F00C02D37 /* CurrentCoctail.swift */,
 			);
 			path = CocktailApp;
 			sourceTree = "<group>";
@@ -258,8 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049164252731EF6F00C02D37 /* CurrentCoctail.swift in Sources */,
 				04C41B6A27319899005B3B01 /* ViewController.swift in Sources */,
+				049164212731E1AA00C02D37 /* APICoctailManager.swift in Sources */,
 				04C41B6627319899005B3B01 /* AppDelegate.swift in Sources */,
+				049164232731E73900C02D37 /* NetworkError.swift in Sources */,
+				0491641F2731DC9400C02D37 /* NetworkService.swift in Sources */,
 				04C41B6827319899005B3B01 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
