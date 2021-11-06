@@ -84,26 +84,6 @@ extension NetworkService {
         }
         dataTask.resume()
     }
-//    func weatherFetch(url: String,  completion: @escaping (Result<<T>, Error>) -> ()) {
-//          guard let url = URL(string: url) else { return }
-//
-//          URLSession.shared.dataTask(with: url) { (data, responce, error) in
-//              DispatchQueue.main.async {
-//                  if let error = error {
-//                      completion(.failure(error))
-//                      return
-//                  }
-//                  guard let data = data else { return }
-//                  do {
-//                      let result = try JSONDecoder().decode(WeatherModel.self, from: data)
-//                      completion(.success(result))
-//
-//                  } catch let jsonError {
-//                      completion(.failure(jsonError))
-//                  }
-//              }
-//          }.resume()
-//      }
 
 }
 
