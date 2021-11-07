@@ -26,8 +26,18 @@ final class CoctailViewCoordinator {
     // MARK: - Coordinator functions
 
     func Start() {
-        self.viewController = ViewController()
+        let viewModel = CocktailViewModel()
+        
         //fetch Data
+        viewModel.fetchData()
+        viewModel.fetchData()
+        viewModel.fetchData()
+        viewModel.fetchData()
+        
+        //view
+        self.viewController = ViewController()
+        self.viewController.configureVC(viewModel: viewModel)
+       
         self.navigationController.pushViewController(self.viewController, animated: false)
     }
 }

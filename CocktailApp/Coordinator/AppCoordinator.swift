@@ -26,6 +26,5 @@ final class AppCoordinator:AppCoordinatorProtocol {
     init(navigationController: UINavigationController) {
         self.navigatorController = navigationController
     }
-    
 }
 

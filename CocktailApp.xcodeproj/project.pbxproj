@@ -11,6 +11,10 @@
 		049164212731E1AA00C02D37 /* APICoctailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164202731E1AA00C02D37 /* APICoctailManager.swift */; };
 		049164232731E73900C02D37 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164222731E73900C02D37 /* NetworkError.swift */; };
 		049164252731EF6F00C02D37 /* CurrentCoctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049164242731EF6F00C02D37 /* CurrentCoctail.swift */; };
+		049B070027372D3F00E32485 /* CocktailViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B06FF27372D3F00E32485 /* CocktailViewModelImpl.swift */; };
+		049B0702273737D800E32485 /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B0701273737D800E32485 /* CellViewModel.swift */; };
+		049B070527375F3100E32485 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B070427375F3100E32485 /* DetailViewController.swift */; };
+		049B07072737601500E32485 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B07062737601500E32485 /* DetailViewModel.swift */; };
 		04A5E13B2736FEBA00C55006 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5E13A2736FEBA00C55006 /* AppCoordinator.swift */; };
 		04A5E13D2736FEBA00C55006 /* CoctailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5E13C2736FEBA00C55006 /* CoctailViewCoordinator.swift */; };
 		04C41B6627319899005B3B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41B6527319899005B3B01 /* AppDelegate.swift */; };
@@ -44,6 +48,10 @@
 		049164202731E1AA00C02D37 /* APICoctailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICoctailManager.swift; sourceTree = "<group>"; };
 		049164222731E73900C02D37 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		049164242731EF6F00C02D37 /* CurrentCoctail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoctail.swift; sourceTree = "<group>"; };
+		049B06FF27372D3F00E32485 /* CocktailViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailViewModelImpl.swift; sourceTree = "<group>"; };
+		049B0701273737D800E32485 /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		049B070427375F3100E32485 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		049B07062737601500E32485 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		04A5E13A2736FEBA00C55006 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		04A5E13C2736FEBA00C55006 /* CoctailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailViewCoordinator.swift; sourceTree = "<group>"; };
 		04C41B6227319899005B3B01 /* CocktailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +97,6 @@
 		048EF60D2735725900455A83 /* ModuleMain */ = {
 			isa = PBXGroup;
 			children = (
-				04C41B6927319899005B3B01 /* ViewController.swift */,
 				048EF6102735728700455A83 /* ViewModel */,
 				048EF60F2735728000455A83 /* View */,
 				048EF60E2735727000455A83 /* Model */,
@@ -108,6 +115,7 @@
 		048EF60F2735728000455A83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04C41B6927319899005B3B01 /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +123,8 @@
 		048EF6102735728700455A83 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				049B06FF27372D3F00E32485 /* CocktailViewModelImpl.swift */,
+				049B0701273737D800E32485 /* CellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -135,6 +145,15 @@
 				049164222731E73900C02D37 /* NetworkError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		049B070327375EFC00E32485 /* ModuleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				049B070427375F3100E32485 /* DetailViewController.swift */,
+				049B07062737601500E32485 /* DetailViewModel.swift */,
+			);
+			path = ModuleDetail;
 			sourceTree = "<group>";
 		};
 		04A5E1392736FE8F00C55006 /* Coordinator */ = {
@@ -172,6 +191,7 @@
 				04A5E1392736FE8F00C55006 /* Coordinator */,
 				048EF611273572A400455A83 /* Networking */,
 				048EF60D2735725900455A83 /* ModuleMain */,
+				049B070327375EFC00E32485 /* ModuleDetail */,
 				04C41B6527319899005B3B01 /* AppDelegate.swift */,
 				04C41B6727319899005B3B01 /* SceneDelegate.swift */,
 				04C41B6E2731989A005B3B01 /* Assets.xcassets */,
@@ -330,12 +350,16 @@
 			files = (
 				049164252731EF6F00C02D37 /* CurrentCoctail.swift in Sources */,
 				04A5E13D2736FEBA00C55006 /* CoctailViewCoordinator.swift in Sources */,
+				049B0702273737D800E32485 /* CellViewModel.swift in Sources */,
+				049B070527375F3100E32485 /* DetailViewController.swift in Sources */,
 				04C41B6A27319899005B3B01 /* ViewController.swift in Sources */,
 				049164212731E1AA00C02D37 /* APICoctailManager.swift in Sources */,
 				04C41B6627319899005B3B01 /* AppDelegate.swift in Sources */,
 				04A5E13B2736FEBA00C55006 /* AppCoordinator.swift in Sources */,
 				049164232731E73900C02D37 /* NetworkError.swift in Sources */,
+				049B07072737601500E32485 /* DetailViewModel.swift in Sources */,
 				0491641F2731DC9400C02D37 /* NetworkService.swift in Sources */,
+				049B070027372D3F00E32485 /* CocktailViewModelImpl.swift in Sources */,
 				04C41B6827319899005B3B01 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,6 +29,4 @@ final class APICoctailManager {
              }
          }.resume()
      }
- 
-    
 }
