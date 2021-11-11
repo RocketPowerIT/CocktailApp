@@ -8,36 +8,31 @@
 import Foundation
 import UIKit
 
-final class CoctailViewCoordinator {
-    // MARK: - Instance dependencies
+final class CoctailViewCoordinator: AppCoordinatorProtocol {
+
+    var navigatorController: UINavigationController
     
-    private let navigationController: UINavigationController
+    private var mainViewController: MainViewController!
     
-    // MARK: - Instance state
-    
-    private var viewController: ViewController!
-    
-    // MARK: - Initializers
+    private var mainViewModel: MainViewModel!
     
     init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+        self.navigatorController = navigationController
     }
     
-    // MARK: - Coordinator functions
-
     func Start() {
-        let viewModel = CocktailViewModel()
+        mainViewModel = MainViewModel()
+        self.mainViewController = MainViewController(viewModel: mainViewModel)
+        self.navigatorController.pushViewController(self.mainViewController, animated: false)
+        mainViewController.coordinator = self
+    }
+    
+    func goToDetail(data: CurrentCoctailDetail){
+        let detailVM = DetailViewModel(item: data)
         
-        //fetch Data
-        viewModel.fetchData()
-        viewModel.fetchData()
-        viewModel.fetchData()
-        viewModel.fetchData()
+        let detailVC = DetailViewController()
+        detailVC.configureDetail(viewModel: detailVM)
         
-        //view
-        self.viewController = ViewController()
-        self.viewController.configureVC(viewModel: viewModel)
-       
-        self.navigationController.pushViewController(self.viewController, animated: false)
+        self.navigatorController.pushViewController(detailVC,animated: false)
     }
 }

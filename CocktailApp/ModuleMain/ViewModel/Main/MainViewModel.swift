@@ -7,32 +7,29 @@
 
 import Foundation
 protocol CocktailViewModelProtocol {
-   // var netw:APICoctailManager? { get set }
-    func configureViewModel(withModel model:CurrentCoctail)
+    func configureViewModel(withModel model:AllCoctail)
     var reloadTableView:(()->Void)? { get set }
 }
 
-class CocktailViewModel:CocktailViewModelProtocol {
+class MainViewModel:CocktailViewModelProtocol {
     
-    var netw = APICoctailManager()
+    var network = APICoctailManager()
     
     var reloadTableView:(()->Void)?
-    
+
     var cellViewModels = [CellViewModel]() {
-            didSet {
-                reloadTableView?()
-            }
+        didSet {
+            reloadTableView?()
+        }
     }
     
-    func createCellModel(model: DrinkCoctail?)->CellViewModel{
-        let id = model!.idDrink
-        let name = model!.strDrink
-        return CellViewModel(id: id, name: name)
+    func createCellViewModel(model: CurrentCoctailDetail)->CellViewModel{
+        return CellViewModel(item: model)
     }
     
-    func configureViewModel(withModel model:CurrentCoctail){
+    func configureViewModel(withModel model:AllCoctail){
         for item in model.drinks {
-            cellViewModels.append(createCellModel(model: item))
+            cellViewModels.append(createCellViewModel(model: item))
         }
     }
     
@@ -42,7 +39,7 @@ class CocktailViewModel:CocktailViewModelProtocol {
     
     func fetchData(){
         let urlStr="https://www.thecocktaildb.com/api/json/v1/1/random.php"
-        netw.fetch(url: urlStr) { result in
+        network.fetch(url: urlStr) { result in
             switch result{
             case .success(let data):
                 print(data)

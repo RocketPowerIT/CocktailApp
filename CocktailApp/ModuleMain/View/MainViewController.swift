@@ -6,12 +6,19 @@
 //
 
 import UIKit
-protocol ViewControllerProtocol {
-    func configureVC(viewModel: CocktailViewModel)
-}
 
-class ViewController: UIViewController, ViewControllerProtocol {
+class MainViewController: UIViewController {
     
+    weak var coordinator: CoctailViewCoordinator?
+    
+    init(viewModel: MainViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     private let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -19,15 +26,18 @@ class ViewController: UIViewController, ViewControllerProtocol {
         return table
     }()
 
-    var viewModel:CocktailViewModel?
-    
-    func configureVC(viewModel: CocktailViewModel) {
-        self.viewModel = viewModel
-    }
+    var viewModel:MainViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "COCKTAILS"
+        viewModel?.fetchData()
+        viewModel?.fetchData()
+        viewModel?.fetchData()
+        viewModel?.fetchData()
+        viewModel?.fetchData()
+        viewModel?.fetchData()
+        viewModel?.fetchData()
         reloadTableView()
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -36,15 +46,14 @@ class ViewController: UIViewController, ViewControllerProtocol {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.viewModel?.cellViewModels.count)!
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as UITableViewCell?
-        cell?.textLabel?.text = viewModel?.getCurrentCell(indexPath: indexPath).name
-        
+        cell?.textLabel?.text = viewModel?.getCurrentCell(indexPath: indexPath).itemDetails.strDrink
         return cell!
     }
     
@@ -59,9 +68,11 @@ extension ViewController: UITableViewDataSource {
     
 }
 
-extension ViewController:UITableViewDelegate {
+extension MainViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("index \(indexPath.row)")
+        let dataItem = viewModel?.getCurrentCell(indexPath: indexPath).itemDetails
+        coordinator?.goToDetail(data: dataItem!)
     }
 }
+
 

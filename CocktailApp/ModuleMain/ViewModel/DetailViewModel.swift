@@ -8,5 +8,9 @@
 import Foundation
 
 class DetailViewModel {
-    
+    let itemDetails:CurrentCoctailDetail
+
+    init(item: CurrentCoctailDetail) {
+       itemDetails = item
+    }
 }

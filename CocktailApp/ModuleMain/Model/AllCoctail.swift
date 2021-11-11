@@ -7,15 +7,14 @@
 
 import Foundation
 
-struct CurrentCoctail:Codable {
-    let drinks:[DrinkCoctail]
+struct AllCoctail:Codable {
+    let drinks:[CurrentCoctailDetail]
 }
 
-struct DrinkCoctail:Codable {
+struct CurrentCoctailDetail:Codable {
     let idDrink: String
     let strDrink: String
     let strDrinkAlternate: String?
-    let strTags: String?
     let strVideo: String?
     let strCategory: String?
     let strIBA: String?
@@ -23,10 +22,6 @@ struct DrinkCoctail:Codable {
     let strGlass: String?
     
     let strInstructions: String?
-    let strInstructionsES: String?
-    let strInstructionsDE: String?
-    let strInstructionsFR: String?
-    let strInstructionsIT: String?
     
     let strDrinkThumb: String?
     
@@ -61,11 +56,6 @@ struct DrinkCoctail:Codable {
     let strMeasure13: String?
     let strMeasure14: String?
     let strMeasure15: String?
-   
-    let strImageSource: String?
-    let strImageAttribution: String?
-    let strCreativeCommonsConfirmed: String?
-    let dateModified: String?
 }
 
 /*
