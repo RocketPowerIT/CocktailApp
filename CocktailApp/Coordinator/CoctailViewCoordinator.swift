@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class CoctailViewCoordinator: AppCoordinatorProtocol {
-
+    
     var navigatorController: UINavigationController
     
     private var mainViewController: MainViewController!

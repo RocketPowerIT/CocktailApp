@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return table
     }()
-
+    
     var viewModel:MainViewModel?
     
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.viewModel?.cellViewModels.count)!
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as UITableViewCell?
         cell?.textLabel?.text = viewModel?.getCurrentCell(indexPath: indexPath).itemDetails.strDrink
@@ -62,7 +62,7 @@ extension MainViewController: UITableViewDataSource {
             DispatchQueue.main.async {
                 print("reload srction")
                 self?.tableView.reloadData()
-               }
+            }
         }
     }
     
