@@ -15,17 +15,17 @@ class DetailView: UIView {
         }
     }
     
-    lazy var nameDrink = createLabel(size: 30)
-    lazy var strq = createLabel(size: 30)
+    lazy var drinkLabel = createLabel(size: 30)
+    lazy var instructionLabel = createLabel(size: 30)
     
-    lazy var img1 = createImage()
-    lazy var img2 = createImage()
+    lazy var coctailImg = createImage()
     
     //uiview block 1
     var blockView1: UIView = {
         let view = UIView()
+        view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cyan
+        view.backgroundColor = .black
         return view
     }()
     
@@ -38,20 +38,19 @@ class DetailView: UIView {
     }()
     
     //uiview block 3
-    lazy var instructionView: UIView = {
+    var blockView3: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .blue
-        addSubview(view)
+        view.backgroundColor = .lightGray
         return view
     }()
-
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -61,12 +60,8 @@ class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func setupView(){
-        backgroundColor = .white
+        backgroundColor = .clear
         
         addSubview(scrollView)
         NSLayoutConstraint.activate([
@@ -79,6 +74,7 @@ class DetailView: UIView {
         scrollView.addSubview(blockView1)
         scrollView.addSubview(blockView2)
         
+       // blockView1
         NSLayoutConstraint.activate([
             blockView1.topAnchor.constraint(equalTo: scrollView.topAnchor),
             blockView1.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -94,37 +90,33 @@ class DetailView: UIView {
             blockView2.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
         
-        //ContentView View
-        blockView1.addSubview(nameDrink)
+        //blockView1 ->nameDrink
+        blockView1.addSubview(drinkLabel)
         NSLayoutConstraint.activate([
-            nameDrink.topAnchor.constraint(equalTo: blockView1.topAnchor),
-            nameDrink.leadingAnchor.constraint(equalTo: blockView1.leadingAnchor),
-            nameDrink.trailingAnchor.constraint(equalTo: blockView1.trailingAnchor),
-            nameDrink.heightAnchor.constraint(equalToConstant: 36)
+            drinkLabel.topAnchor.constraint(equalTo: blockView1.topAnchor, constant: 10),
+            drinkLabel.leadingAnchor.constraint(equalTo: blockView1.leadingAnchor),
+            drinkLabel.trailingAnchor.constraint(equalTo: blockView1.trailingAnchor),
         ])
         
-        //Img1
-        blockView1.addSubview(img1)
+        ////blockView1 -> coctailImg
+        blockView1.addSubview(coctailImg)
         
         NSLayoutConstraint.activate([
-            img1.topAnchor.constraint(equalTo: nameDrink.bottomAnchor),
-            img1.leadingAnchor.constraint(equalTo: blockView1.leadingAnchor),
-            img1.trailingAnchor.constraint(equalTo: blockView1.trailingAnchor),
-          //  img1.heightAnchor.constraint(equalTo: img1.widthAnchor,multiplier: imgH!/imgW!)
-            //last
-            img1.bottomAnchor.constraint(equalTo: blockView1.bottomAnchor)
-        ])
+            coctailImg.topAnchor.constraint(equalTo: drinkLabel.bottomAnchor, constant: 10),
+            coctailImg.leadingAnchor.constraint(equalTo: blockView1.leadingAnchor),
+            coctailImg.trailingAnchor.constraint(equalTo: blockView1.trailingAnchor),
+            coctailImg.heightAnchor.constraint(equalTo: coctailImg.widthAnchor, multiplier: 1),
 
-        blockView2.addSubview(strq)
-        NSLayoutConstraint.activate([
-            strq.topAnchor.constraint(equalTo: blockView2.topAnchor),
-            strq.leadingAnchor.constraint(equalTo: blockView2.leadingAnchor),
-            strq.trailingAnchor.constraint(equalTo: blockView2.trailingAnchor),
-          //  strq.heightAnchor.constraint(equalToConstant: 222),
-            strq.bottomAnchor.constraint(equalTo: blockView2.bottomAnchor)
+            coctailImg.bottomAnchor.constraint(equalTo: blockView1.bottomAnchor)
         ])
         
-        
+        blockView2.addSubview(instructionLabel)
+        NSLayoutConstraint.activate([
+            instructionLabel.topAnchor.constraint(equalTo: blockView2.topAnchor),
+            instructionLabel.leadingAnchor.constraint(equalTo: blockView2.leadingAnchor),
+            instructionLabel.trailingAnchor.constraint(equalTo: blockView2.trailingAnchor),
+            instructionLabel.bottomAnchor.constraint(equalTo: blockView2.bottomAnchor)
+        ])
     }
     
     func setupViewController(){
@@ -144,9 +136,6 @@ class DetailView: UIView {
 extension DetailView {
     func createImage()->UIImageView {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
-        image.clipsToBounds = true
-        image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }
@@ -158,35 +147,8 @@ extension DetailView {
         label.font = UIFont.systemFont(ofSize: size)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.backgroundColor = .yellow
-        label.text = "test"
+        label.textAlignment = .center
+        label.layer.cornerRadius = 90
         return label
-    }
-    
-    func makeDescriptionLabel() -> UILabel {
-        let titleLabel = createLabel(size: 20)
-        titleLabel.textAlignment = .center
-        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        return titleLabel
-    }
-}
-
-extension UIImage {
-
-    func aspectFitImage(inRect rect: CGRect) -> UIImage? {
-        let width = self.size.width
-        let height = self.size.height
-        let aspectWidth = rect.width / width
-        let aspectHeight = rect.height / height
-        let scaleFactor = aspectWidth > aspectHeight ? rect.size.height / height : rect.size.width / width
-
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: width * scaleFactor, height: height * scaleFactor), false, 0.0)
-        self.draw(in: CGRect(x: 0.0, y: 0.0, width: width * scaleFactor, height: height * scaleFactor))
-
-        defer {
-            UIGraphicsEndImageContext()
-        }
-
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

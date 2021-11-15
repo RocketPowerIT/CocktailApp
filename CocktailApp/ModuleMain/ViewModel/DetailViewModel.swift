@@ -11,17 +11,13 @@ class DetailViewModel {
     let itemDetails:CurrentCoctailDetail
 
     let drinkName:String?
-    let category:String?
-    let alcoholic:String?
     let urlImg:String?
-    
+    let instructionString:String?
 
-    
     init(item: CurrentCoctailDetail) {
-       itemDetails = item
-        self.drinkName = item.strDrink
-        self.category = item.strCategory
-        self.alcoholic = item.strAlcoholic
+        itemDetails = item
+        self.drinkName = "Название напитка: \n" + item.strDrink
         self.urlImg = item.strDrinkThumb
+        self.instructionString = "Инструкция: \n" + item.strInstructions!
     }
 }

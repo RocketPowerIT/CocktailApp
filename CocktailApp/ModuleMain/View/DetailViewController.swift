@@ -26,19 +26,16 @@ class DetailViewController: UIViewController {
     
     func configureDetail(viewModel: DetailViewModel) {
         self.viewModel = viewModel
-        detailView.nameDrink.text = viewModel.itemDetails.strDrink
-        detailView.strq.text = viewModel.itemDetails.strInstructions
+        detailView.drinkLabel.text = viewModel.drinkName
         network.downloadImage(from: viewModel.urlImg!, completion: { (result) in
             switch result {
             case .success(let img):
-                self.detailView.img1.image = img
-               
-                
-                
+                self.detailView.coctailImg.image = img
             case .failure(let error):
                 print(error)
                 break
             }
         })
+        detailView.instructionLabel.text = viewModel.instructionString
     }
 }
