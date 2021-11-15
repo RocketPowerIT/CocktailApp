@@ -14,13 +14,13 @@ protocol AppCoordinatorProtocol {
 
 final class AppCoordinator:AppCoordinatorProtocol {
     var navigatorController:UINavigationController
-    var childCoordinator: CoctailViewCoordinator!
+    var tabBarCoordinator: TabCoordinator?
+
     
     func Start() {
-        print("start")
-        let coctailViewCoordinator = CoctailViewCoordinator(navigationController: self.navigatorController)
-        self.childCoordinator = coctailViewCoordinator
-        self.childCoordinator.Start()
+        let tabBarCoordinator = TabCoordinator(navigationController: self.navigatorController)
+        self.tabBarCoordinator = tabBarCoordinator
+        self.tabBarCoordinator?.Start()
     }
     
     init(navigationController: UINavigationController) {

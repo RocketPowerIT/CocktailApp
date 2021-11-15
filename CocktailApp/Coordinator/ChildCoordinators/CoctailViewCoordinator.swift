@@ -12,8 +12,7 @@ final class CoctailViewCoordinator: AppCoordinatorProtocol {
     
     var navigatorController: UINavigationController
     
-    private var mainViewController: MainViewController!
-    
+    var mainViewController: MainViewController!
     private var mainViewModel: MainViewModel!
     
     init(navigationController: UINavigationController) {
@@ -21,9 +20,12 @@ final class CoctailViewCoordinator: AppCoordinatorProtocol {
     }
     
     func Start() {
+        self.navigatorController.pushViewController(self.mainViewController, animated: false)
+    }
+    
+    func initVC(){
         mainViewModel = MainViewModel()
         self.mainViewController = MainViewController(viewModel: mainViewModel)
-        self.navigatorController.pushViewController(self.mainViewController, animated: false)
         mainViewController.coordinator = self
     }
     
