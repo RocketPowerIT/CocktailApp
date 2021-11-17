@@ -172,6 +172,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		049842262744AD670058F2C6 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				0498422427446AB90058F2C6 /* DBManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		049D1EBC27421D9D00404416 /* ChildCoordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,9 +236,9 @@
 				04A5E1392736FE8F00C55006 /* Coordinator */,
 				048EF60D2735725900455A83 /* MainModule */,
 				048EF611273572A400455A83 /* Networking */,
+				049842262744AD670058F2C6 /* StorageManager */,
 				04CCB9E72739E4E3004EBF95 /* System */,
 				04C41B732731989A005B3B01 /* Info.plist */,
-				0498422427446AB90058F2C6 /* DBManager.swift */,
 			);
 			path = CocktailApp;
 			sourceTree = "<group>";
