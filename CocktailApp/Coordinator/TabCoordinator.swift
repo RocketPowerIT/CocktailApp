@@ -25,7 +25,7 @@ class TabCoordinator: AppCoordinatorProtocol {
     
     func Start() {
         self.mainCoordinator?.initVC()
-        self.mainCoordinator?.mainViewController.tabBarItem = UITabBarItem(title: "Tab 1", image: nil, selectedImage: nil)
+        self.mainCoordinator?.mainViewController.tabBarItem = UITabBarItem(title: "COCKTAILS", image: nil, selectedImage: nil)
 
         self.favCoordinator?.initVC()
         self.favCoordinator?.favVC.tabBarItem = UITabBarItem(title: "Favorite", image: nil, selectedImage: nil)

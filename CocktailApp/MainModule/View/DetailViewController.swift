@@ -13,6 +13,9 @@ class DetailViewController: UIViewController {
     
     var network = APICoctailManager()
     
+    var storageManager = DBManager()
+    
+
     let detailView: DetailView = {
         let view = DetailView()
         return view
@@ -22,6 +25,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         detailView.myDetailViewController = self
         title = viewModel?.itemDetails.strDrink
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+    }
+    
+    @objc func addTapped(){
+        storageManager.save(model: viewModel!.itemDetails)
+        //AlertView
     }
     
     func configureDetail(viewModel: DetailViewModel) {

@@ -27,5 +27,14 @@ final class FavoriteCocktailViewCoordinator: AppCoordinatorProtocol {
         self.favVC.coordinator = self
     }
     
+    func goToDetail(data: CurrentCoctailDetail){
+        let detailVM = DetailViewModel(item: data)
+        
+        let detailVC = DetailViewController()
+        detailVC.configureDetail(viewModel: detailVM)
+        
+        self.navigatorController.pushViewController(detailVC,animated: false)
+    }
+    
     
 }

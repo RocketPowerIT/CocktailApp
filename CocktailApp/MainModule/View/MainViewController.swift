@@ -9,7 +9,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    
     weak var coordinator: CoctailViewCoordinator?
+    
+
     
     init(viewModel: MainViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -30,7 +33,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "COCKTAILS"
+        navigationItem.largeTitleDisplayMode = .always
+      ///  title = "COCKTAILS"
         viewModel?.fetchData()
         viewModel?.fetchData()
         viewModel?.fetchData()
@@ -38,6 +42,7 @@ class MainViewController: UIViewController {
         viewModel?.fetchData()
         viewModel?.fetchData()
         viewModel?.fetchData()
+
         reloadTableView()
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -70,8 +75,11 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dataItem = viewModel?.getCurrentCell(indexPath: indexPath).itemDetails
-        coordinator?.goToDetail(data: dataItem!)
+        guard let dataItem = viewModel?.getCurrentCell(indexPath: indexPath).itemDetails else {
+            return
+        }
+        
+        coordinator?.goToDetail(data: dataItem)
     }
 }
 
