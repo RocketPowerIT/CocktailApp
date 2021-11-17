@@ -117,14 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		048EF60D2735725900455A83 /* MainModule */ = {
+		048EF60D2735725900455A83 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				048EF6102735728700455A83 /* ViewModel */,
 				048EF60F2735728000455A83 /* View */,
 				048EF60E2735727000455A83 /* Model */,
 			);
-			path = MainModule;
+			path = App;
 			sourceTree = "<group>";
 		};
 		048EF60E2735727000455A83 /* Model */ = {
@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				04A5E1392736FE8F00C55006 /* Coordinator */,
-				048EF60D2735725900455A83 /* MainModule */,
+				048EF60D2735725900455A83 /* App */,
 				048EF611273572A400455A83 /* Networking */,
 				049842262744AD670058F2C6 /* StorageManager */,
 				04CCB9E72739E4E3004EBF95 /* System */,
